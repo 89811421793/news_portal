@@ -1,13 +1,26 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+
+const ENV = process.env.NODE_ENV === "production" ? "production" : "development";
+const devMode = ENV === 'development';
+const target = devMode ? 'web' : "browserslist";
+const devtool = devMode ? 'source-map' : undefined;
 
 module.exports = {
-    mode: 'development', 
-    entry: './src/index.js',
+    mode: ENV,
+    target: target,
+    devtool: devtool,
+    entry: [
+        'core-js/stable',   //@babel/polyfill больше не поддерживается
+        'regenerator-runtime/runtime',
+        path.resolve(__dirname, "src", "index.js")
+    ],
     output: {
-        filename: 'bundle.js',
+        filename: '[name].[contenthash].js',
         path: path.resolve(__dirname, 'dist'),
-        clean: true, 
+        clean: true,
+        assetModuleFilename: 'assets/[hash][ext]',
     },
     module: {
         rules: [
@@ -19,16 +32,27 @@ module.exports = {
                 test: /\.css$/,
                 use: ['style-loader', 'css-loader'],
             },
+            {
+                test: /\.js$/,
+                exclude: /node_modules/,
+                use: {
+                    loader: 'babel-loader',
+                },
+            },
         ],
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: './src/pages/mainpage.hbs', 
+            template: './src/pages/mainpage.hbs',
             filename: 'index.html',
         }),
         new HtmlWebpackPlugin({
-            template: './src/pages/articlepage.hbs', 
+            template: './src/pages/articlepage.hbs',
             filename: 'article.html',
+        }),
+        new BundleAnalyzerPlugin({
+            analyzerMode: devMode ? 'server' : 'disabled', // Включить только в режиме разработки
+            openAnalyzer: false, // Автоматически открыть отчет
         }),
     ],
     devServer: {
@@ -39,13 +63,19 @@ module.exports = {
         port: 9000,
         historyApiFallback: true,
         hot: false,
+        open: true,
+        client: {
+            overlay: {
+                errors: true,
+                warnings: false,
+            },
+        },
     },
     performance: {
-        maxAssetSize: 200000, 
-        maxEntrypointSize: 200000, 
+        maxAssetSize: 200000,
+        maxEntrypointSize: 200000,
     },
 };
-
 
 
 /*Иные варианты "scripts" в package.json:
