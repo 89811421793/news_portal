@@ -2,6 +2,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const TerserWebpackPlugin = require('terser-webpack-plugin');
 
 const ENV = process.env.NODE_ENV === "production" ? "production" : "development";
 const devMode = ENV === 'development';
@@ -13,7 +14,7 @@ module.exports = {
     target: target,
     devtool: devtool,
     entry: [
-        'core-js/stable',   //@babel/polyfill больше не поддерживается
+        'core-js/stable',
         'regenerator-runtime/runtime',
         path.resolve(__dirname, "src", "index.js")
     ],
@@ -60,19 +61,35 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: './src/pages/mainpage.hbs',
             filename: 'index.html',
-            inject: true
+            inject: true,
+            minify: {
+                removeComments: false,
+                collapseWhitespace: true,
+                minifyCSS: true,
+                minifyJS: true,
+            }
         }),
         new HtmlWebpackPlugin({
             template: './src/pages/articlepage.hbs',
             filename: 'article.html',
+            minify: {
+                removeComments: true,
+                collapseWhitespace: true,
+                minifyCSS: true,
+                minifyJS: true,
+            }
         }),
         new BundleAnalyzerPlugin({
-            analyzerMode: devMode ? 'server' : 'disabled', // Включить только в режиме разработки
-            openAnalyzer: false, // Автоматически открыть отчет
+            analyzerMode: devMode ? 'server' : 'disabled',
+            openAnalyzer: false,
         }),
     ],
+    optimization: {
+        minimize: true,
+        minimizer: [new TerserWebpackPlugin()],
+    },
     cache: {
-        type: 'filesystem', // Используем файловую систему для кэширования
+        type: 'filesystem',
     },
     devServer: {
         static: {
@@ -95,6 +112,7 @@ module.exports = {
         maxEntrypointSize: 200000,
     },
 };
+
 
 
 
