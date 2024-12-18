@@ -1,6 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 const ENV = process.env.NODE_ENV === "production" ? "production" : "development";
 const devMode = ENV === 'development';
@@ -30,7 +31,10 @@ module.exports = {
             },
             {
                 test: /\.css$/,
-                use: ['style-loader', 'css-loader'],
+                use: [
+                    devMode ? 'style-loader' : MiniCssExtractPlugin.loader,
+                    'css-loader'
+                ],
             },
             {
                 test: /\.js$/,
@@ -39,12 +43,24 @@ module.exports = {
                     loader: 'babel-loader',
                 },
             },
+            {
+                test: /\.(png|jpe?g|gif|webp|svg)$/,
+                type: 'asset/resource',
+            },
+            {
+                test: /\.(woff|woff2|eot|ttf|otf)$/,
+                type: 'asset/resource',
+            },
         ],
     },
     plugins: [
+        new MiniCssExtractPlugin({
+            filename: '[name].[contenthash].css',
+        }),
         new HtmlWebpackPlugin({
             template: './src/pages/mainpage.hbs',
             filename: 'index.html',
+            inject: true
         }),
         new HtmlWebpackPlugin({
             template: './src/pages/articlepage.hbs',
@@ -55,6 +71,9 @@ module.exports = {
             openAnalyzer: false, // Автоматически открыть отчет
         }),
     ],
+    cache: {
+        type: 'filesystem', // Используем файловую систему для кэширования
+    },
     devServer: {
         static: {
             directory: path.join(__dirname, 'dist'),
@@ -78,7 +97,10 @@ module.exports = {
 };
 
 
-/*Иные варианты "scripts" в package.json:
+
+/*
+
+Иные варианты "scripts" в package.json:
 
 "scripts": {
 "start": "webpack serve",
@@ -116,6 +138,5 @@ module.exports = {
 
 Касательно "build", может быть и такая вариация - 
 "build": "webpack --config webpack.config.js"
-
 
 */
