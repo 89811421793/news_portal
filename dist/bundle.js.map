@@ -1,1 +1,0 @@
-{"version":3,"file":"bundle.js","mappings":";;;;AAAA;AACA;AACA,CAAC,E","sources":["webpack://news_portal/./src/index.js"],"sourcesContent":["$(document).ready(function() {\r\n    console.log(\"jQuery is running!\");\r\n});"],"names":[],"sourceRoot":""}
