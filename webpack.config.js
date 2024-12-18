@@ -73,7 +73,7 @@ module.exports = {
             template: './src/pages/articlepage.hbs',
             filename: 'article.html',
             minify: {
-                removeComments: true,
+                removeComments: false,
                 collapseWhitespace: true,
                 minifyCSS: true,
                 minifyJS: true,
