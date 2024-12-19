@@ -85,18 +85,24 @@ module.exports = {
         }),
     ],
     optimization: {
-        splitChunks: {                //для создания vendor.js; Настройка сплиттинга чанков
-            chunks: 'all',            //указывает Webpack разбивать код на чанки (части) для всех типов загрузок (асинхронных и синхронных)
+        splitChunks: {
+            chunks: 'all',
+            minSize: 20000, // минимальный размер для сплиттинга
+            maxSize: 70000, // максимальный размер для чанков
+            minChunks: 1, // минимальное количество использований для создания чанка
+            maxAsyncRequests: 30, // максимальное количество асинхронных запросов
+            maxInitialRequests: 30, // максимальное количество начальных запросов
+            automaticNameDelimiter: '~',
             cacheGroups: {
                 vendor: {
-                    test: /[\\/]node_modules[\\/]/,       //все сторонние библиотеки (jQuery, Bootstrap и др) будут собраны в один файл
-                    name: 'vendor',                       //// Имя для чанка (все библиотеки из node_modules будут собраны в vendor.js)
+                    test: /[\\/]node_modules[\\/]/,
+                    name: 'vendor',
                     chunks: 'all',
                 },
                 default: {
-                    minChunks: 2, // чанк будет создан только, если опред модуль (или файл) используется как минимум в 2х разных местах приложения
-                    priority: -20, // определяет, какие группы чанков имеют преимущество при создании
-                    reuseExistingChunk: true, // Повторно использовать существующие чанки
+                    minChunks: 2,
+                    priority: -20,
+                    reuseExistingChunk: true,
                 },
             },
         },
@@ -105,6 +111,9 @@ module.exports = {
     },
     cache: {
         type: 'filesystem',
+    },
+    performance: {
+        hints: false
     },
     devServer: {
         static: {
@@ -122,17 +131,9 @@ module.exports = {
             },
         },
     },
-    performance: {
-        maxAssetSize: 200000,
-        maxEntrypointSize: 200000,
-    },
 };
 
-
-
-
 /*
-
 Иные варианты "scripts" в package.json:
 
 "scripts": {
@@ -171,10 +172,7 @@ module.exports = {
 
 Касательно "build", может быть и такая вариация - 
 "build": "webpack --config webpack.config.js"
-
 */
-
-
 
 /*
 vendor.js: Этот файл обычно содержит сторонние библиотеки и зависимости, такие как jQuery, Bootstrap и другие.
