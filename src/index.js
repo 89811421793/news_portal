@@ -6,5 +6,5 @@ import 'bootstrap'; // если будем использовать и JS фун
 $(document).ready(function() {
    
     $('h1').addClass('text-danger'); 
-    
+    $('h2').addClass('text-warning'); 
 });

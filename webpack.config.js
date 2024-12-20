@@ -30,6 +30,9 @@ module.exports = {
       {
         test: /\.hbs$/,
         loader: "handlebars-loader",
+        options: {
+          partialDirs: [path.resolve(__dirname, "src/partials")], 
+        },
       },
       {
         test: /\.css$/,
