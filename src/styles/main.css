@@ -1,3 +1,7 @@
-.text-tomato {
-    color: tomato;
+.menu-icon {
+    border-bottom: 1px solid #D9DADB;
+    border-right:1px solid #D9DADB;
+    padding: 18px 25px 18px 0;
+    display: inline-block;
 }
+

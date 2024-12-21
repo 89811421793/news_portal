@@ -35,6 +35,7 @@
   "dependencies": {
     "bootstrap": "^5.3.3",
     "core-js": "^3.39.0",
+    "handlebars": "^4.7.8",
     "jquery": "^3.7.1",
     "normalize.css": "^8.0.1",
     "regenerator-runtime": "^0.14.1"
