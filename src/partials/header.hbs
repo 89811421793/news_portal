@@ -1,12 +1,20 @@
-<header>
-    <div class="menu-icon">
-        {{!-- без динамической вставки через JQuery, вставка напрямую:
-        
-        <svg width="24" height="24" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg" class="align-middle">
-            <g id='burgermenu'>
-                <path fill-rule="evenodd" clip-rule="evenodd" d="M18 14H0V12H18V14ZM12 8H0V6H12V8ZM0 2V0H18V2H0Z" fill="#BCBFC2"/>
-            </g>
-        </svg> --}}
-        <span class="ms-2 align-middle">Sections</span>
+<header class="d-flex align-items-center">
+    <div class="menu-icon d-flex border-bottom border-right pt-2 pe-4 pb-3 ps-0">
+        <span>Sections</span>
+    </div>
+
+    <label class="form-control d-inline-flex border-0 ps-0 pe-0 pt-0 pb-0 lable-search" style="max-width:830px">
+        <input class="form-control border-top-0 border-end-0 ps-5 pe-4 pt-2 pb-3 rounded-0" type="text" placeholder="Search">
+    </label>
+
+    <img alt="" id="dynamicImg" class="align-self-end" width="66" height='44'>
+
+    <div class="text-left" style="margin-left:10px; margin-right:50px">
+        <span>Subscribe Now</span><br>
+        <span>3 months for \$19</span>
+    </div>
+
+    <div class="authorization d-inline-flex align-items-center p-2" style="gap:10px">
+        <span>Sign In</span>
     </div>
 </header>
