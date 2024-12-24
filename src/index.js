@@ -2,6 +2,88 @@ import './styles/main.css';
 import $ from 'jquery'; 
 import 'bootstrap/dist/css/bootstrap.min.css'; 
 import 'bootstrap'; 
+import Handlebars from 'handlebars';
+
+// Данные для футера
+const footerData = [
+    {
+        title: "News",
+        links: [
+            { name: "Nation", url: "#" },
+            { name: "World", url: "#" },
+            { name: "Politics", url: "#" },
+            { name: "Solar Eclipse", url: "#" }
+        ]
+    },
+    {
+        title: "Arts",
+        links: [
+            { name: "Art & Design", url: "#" },
+            { name: "Movies", url: "#" },
+            { name: "People", url: "#" },
+            { name: "Video: Arts", url: "#" },
+            { name: "Theater", url: "#" }
+        ]
+    },
+    {
+        title: "Travel",
+        links: [
+            { name: "Destinations", url: "#" },
+            { name: "Flights", url: "#" },
+            { name: "Business Travel", url: "#" }
+        ]
+    },
+    {
+        title: "Sports",
+        links: [
+            { name: "Olympics", url: "#" },
+            { name: "Motor Sports", url: "#" },
+            { name: "Volleyball", url: "#" },
+            { name: "MMA", url: "#" },
+            { name: "Cycling", url: "#" }
+        ]
+    },
+    {
+        title: "Tech",
+        links: [
+            { name: "Tech", url: "#" },
+            { name: "Tech Columnists", url: "#" },
+            { name: "Tech Reviews", url: "#" },
+            { name: "Talking Tech", url: "#" }
+        ]
+    },
+    {
+        title: "Moneys",
+        links: [
+            { name: "Markets", url: "#" },
+            { name: "Business", url: "#" },
+            { name: "Personal Finance", url: "#" },
+            { name: "Retirement", url: "#" },
+            { name: "Careers", url: "#" }
+        ]
+    }
+];
+
+// Шаблон Handlebars для футера
+const footerTemplate = `
+    <div class="d-flex mt-3">
+        {{#each this}}
+        <div class="col-2 d-flex flex-column border-top border-danger pt-4 text-start" style="min-width:195px;">
+            <strong class="mb-4">{{title}}</strong>
+            {{#each links}}
+            <a href="{{url}}" class="text-black text-decoration-none mb-3">{{name}}</a>
+            {{/each}}
+        </div>
+        {{/each}}
+    </div>
+`;
+
+// Компиляция шаблона
+const template = Handlebars.compile(footerTemplate);
+
+// Генерация HTML и добавление в документ
+const footerHTML = template(footerData);
+$('#here').append(footerHTML);
 
 $(document).ready(function() {
 

@@ -31,6 +31,7 @@ module.exports = {
         test: /\.hbs$/,
         loader: "handlebars-loader",
         options: {
+          precompile: true,
           partialDirs: [path.resolve(__dirname, "src/partials")], 
         },
       },
