@@ -66,7 +66,7 @@ const footerData = [
 
 // Шаблон Handlebars для футера
 const footerTemplate = `
-    <div class="d-flex mt-3">
+    <div class="d-flex mt-4">
         {{#each this}}
         <div class="col-2 d-flex flex-column border-top border-danger pt-4 text-start" style="min-width:195px;">
             <strong class="mb-4">{{title}}</strong>
