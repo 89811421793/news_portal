@@ -1,55 +1,78 @@
 @font-face {
-    font-family: 'Lato';
-    src: url('../resources/fonts/Lato-Regular.woff2') format('woff2');
-    font-weight: normal;
-    font-style: normal;
+  font-family: "Lato";
+  src: url("../resources/fonts/Lato-Regular.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
 }
 
 @font-face {
-    font-family: 'Lato';
-    src: url('../resources/fonts/Lato-Heavy.woff2') format('woff2');
-    font-weight: bold;
-    font-style: normal;
+  font-family: "Lato";
+  src: url("../resources/fonts/Lato-Heavy.woff2") format("woff2");
+  font-weight: bold;
+  font-style: normal;
 }
 
 @font-face {
-    font-family: 'Lato';
-    src: url('../resources/fonts/Lato-HeavyItalic.woff2') format('woff2');
-    font-weight: bold;
-    font-style: italic;
+  font-family: "Lato";
+  src: url("../resources/fonts/Lato-HeavyItalic.woff2") format("woff2");
+  font-weight: bold;
+  font-style: italic;
 }
 
 @font-face {
-    font-family: 'Roboto Slab';
-    src: url('../resources/fonts/Roboto-SlabBold.woff2') format('woff2');
-    font-weight: bold;
-    font-style: normal;
+  font-family: "Roboto Slab";
+  src: url("../resources/fonts/Roboto-SlabBold.woff2") format("woff2");
+  font-weight: bold;
+  font-style: normal;
 }
 
 body {
-    font-family: 'Lato', sans-serif; 
+  font-family: "Lato", sans-serif;
 }
 
 .lable-search {
-    position: relative;
+  position: relative;
 }
 
 .lable-search::before {
-    content: '';
-    background-image: url('../resources/images/search.png');
-    background-size: contain;
-    background-repeat: no-repeat;
-    width: 20px; 
-    height: 20px; 
-    position: absolute;
-    left: 25px; 
-    top: 50%; 
-    transform: translateY(-50%); 
+  content: "";
+  background-image: url("../resources/images/search.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  left: 25px;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 .navblock {
-    background-color: #262D33;
-    padding-top: 18px;
-    padding-bottom: 18px;
+  background-color: #262d33;
+  padding-top: 18px;
+  padding-bottom: 18px;
 }
 
+.border-success {
+  border-top: 5px solid green;
+}
+
+.border-brown {
+  border-top: 5px solid brown;
+}
+
+.border-primary {
+  border-top: 5px solid blue;
+}
+
+.border-olive {
+  border-top: 5px solid olive;
+}
+
+.border-purple {
+  border-top: 5px solid purple;
+}
+
+.border-gold {
+  border-top: 5px solid gold;
+}

@@ -5,7 +5,6 @@ import 'bootstrap';
 import Handlebars from 'handlebars';
 
 
-
 const navData = [
     { name: "News", url: "#" },
     { name: "Opinion", url: "#" },
@@ -21,7 +20,6 @@ const navData = [
 ];
 
 
-// Данные для футера
 const newsCategoryData = [
     {
         title: "News",
@@ -94,14 +92,33 @@ const navTemplate = `
     </div>
 `;
 
+Handlebars.registerHelper('borderColor', function(title) {
+    switch (title) {
+        case 'News':
+            return 'border-success'; // Зеленый
+        case 'Arts':
+            return 'border-brown'; // Коричневый
+        case 'Travel':
+            return 'border-primary'; // Синий
+        case 'Sports':
+            return 'border-olive'; // Оливковый
+        case 'Tech':
+            return 'border-purple'; // Фиолетовый
+        case 'Moneys':
+            return 'border-gold'; // Золотой
+        default:
+            return; 
+    }
+});
+
 
 
 // Шаблон для рубрик/категорий
 const footerTemplate = `
  
-    <div class="d-flex mt-4">
+    <div class="d-flex mt-5">
        {{#each this}}
-        <div class="col-2 d-flex flex-column border-top border-danger pt-4 text-start" style="min-width:195px;">
+        <div class="col-2 d-flex flex-column  {{borderColor title}} pt-4 text-start" style="min-width:195px">
             <strong class="mb-4">{{title}}</strong>
             {{#each links}}
             <a href="{{url}}" class="text-black text-decoration-none mb-3">{{name}}</a>
@@ -126,8 +143,7 @@ const categoryTemplate = Handlebars.compile(footerTemplate);
 
 // Генерация HTML и добавление в документ
 const footerHTML = categoryTemplate(newsCategoryData);
-$('#here').append(footerHTML);
-
+$('#categories').append(footerHTML);
 
 
 
