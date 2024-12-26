@@ -1,17 +1,10 @@
-<div class="navblock bg-dark text-white py-3">
-        <nav class="container">
-            <ul class="d-flex justify-content-between list-unstyled mb-0">
-                <li><a href="#" class="text-white text-uppercase text-decoration-none">News</a></li>
-                <li><a href="#" class="text-white text-uppercase text-decoration-none">Opinion</a></li>
-                <li><a href="#" class="text-white text-uppercase text-decoration-none">Science</a></li>
-                <li><a href="#" class="text-white text-uppercase text-decoration-none">Life</a></li>
-                <li><a href="#" class="text-white text-uppercase text-decoration-none">Travel</a></li>
-                <li><a href="#" class="text-white text-uppercase text-decoration-none">Money</a></li>
-                <li><a href="#" class="text-white text-uppercase text-decoration-none">Art & Design</a></li>
-                <li><a href="#" class="text-white text-uppercase text-decoration-none">Sports</a></li>
-                <li><a href="#" class="text-white text-uppercase text-decoration-none">People</a></li>
-                <li><a href="#" class="text-white text-uppercase text-decoration-none">Health</a></li>
-                <li><a href="#" class="text-white text-uppercase text-decoration-none">Education</a></li>
-            </ul>
-        </nav>
-    </div>
+
+    <div class="navblock bg-dark text-white py-3">
+    <nav class="container">
+        <ul class="d-flex justify-content-between list-unstyled mb-0">
+            {{#each this}}
+            <li><a href="{{url}}" class="text-white text-uppercase text-decoration-none">{{name}}</a></li>
+            {{/each}}
+        </ul>
+    </nav>
+</div>

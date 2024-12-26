@@ -4,8 +4,25 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap'; 
 import Handlebars from 'handlebars';
 
+
+
+const navData = [
+    { name: "News", url: "#" },
+    { name: "Opinion", url: "#" },
+    { name: "Science", url: "#" },
+    { name: "Life", url: "#" },
+    { name: "Travel", url: "#" },
+    { name: "Money", url: "#" },
+    { name: "Art & Design", url: "#" },
+    { name: "Sports", url: "#" },
+    { name: "People", url: "#" },
+    { name: "Health", url: "#" },
+    { name: "Education", url: "#" }
+];
+
+
 // Данные для футера
-const footerData = [
+const newsCategoryData = [
     {
         title: "News",
         links: [
@@ -64,10 +81,26 @@ const footerData = [
     }
 ];
 
-// Шаблон Handlebars для футера
+//Шаблон для навигационного меню
+const navTemplate = `
+    <div class="navblock bg-dark text-white py-3">
+        <nav class="container">
+            <ul class="d-flex justify-content-between list-unstyled mb-0">
+                {{#each this}}
+                <li><a href="{{url}}" class="text-white text-uppercase text-decoration-none">{{name}}</a></li>
+                {{/each}}
+            </ul>
+        </nav>
+    </div>
+`;
+
+
+
+// Шаблон для рубрик/категорий
 const footerTemplate = `
+ 
     <div class="d-flex mt-4">
-        {{#each this}}
+       {{#each this}}
         <div class="col-2 d-flex flex-column border-top border-danger pt-4 text-start" style="min-width:195px;">
             <strong class="mb-4">{{title}}</strong>
             {{#each links}}
@@ -76,14 +109,27 @@ const footerTemplate = `
         </div>
         {{/each}}
     </div>
+    
 `;
 
 // Компиляция шаблона
-const template = Handlebars.compile(footerTemplate);
+const navCompiledTemplate = Handlebars.compile(navTemplate);
 
 // Генерация HTML и добавление в документ
-const footerHTML = template(footerData);
+const navHTML = navCompiledTemplate(navData);
+$('#nav').prepend(navHTML); // Предполагается, что у вас есть элемент с id "here" для вставки навигации
+
+
+
+// Компиляция шаблона
+const categoryTemplate = Handlebars.compile(footerTemplate);
+
+// Генерация HTML и добавление в документ
+const footerHTML = categoryTemplate(newsCategoryData);
 $('#here').append(footerHTML);
+
+
+
 
 $(document).ready(function() {
 
