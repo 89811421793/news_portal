@@ -79,6 +79,14 @@ const newsCategoryData = [
     }
 ];
 
+
+const footerLinksData = [
+    { name: "Contact Us", url: "#" },
+    { name: "Work with Us", url: "#" },
+    { name: "Advertise", url: "#" },
+    { name: "Your Ad Choice", url: "#" }
+];
+
 //Шаблон для навигационного меню
 const navTemplate = `
     <div class="navblock bg-dark text-white py-3">
@@ -112,7 +120,6 @@ Handlebars.registerHelper('borderColor', function(title) {
 });
 
 
-
 // Шаблон для рубрик/категорий
 const footerTemplate = `
  
@@ -129,12 +136,21 @@ const footerTemplate = `
     
 `;
 
+
+const footerLinksTemplate = `
+    <div class="d-flex align-items-center text-uppercase me-3 fw-bold">
+        {{#each this}}
+            <a href="{{url}}" class="text-dark text-decoration-none mx-3">{{name}}</a>
+        {{/each}}
+    </div>
+`;
+
 // Компиляция шаблона
 const navCompiledTemplate = Handlebars.compile(navTemplate);
 
 // Генерация HTML и добавление в документ
 const navHTML = navCompiledTemplate(navData);
-$('#nav').prepend(navHTML); // Предполагается, что у вас есть элемент с id "here" для вставки навигации
+$('#nav').prepend(navHTML); 
 
 
 
@@ -144,6 +160,15 @@ const categoryTemplate = Handlebars.compile(footerTemplate);
 // Генерация HTML и добавление в документ
 const footerHTML = categoryTemplate(newsCategoryData);
 $('#categories').append(footerHTML);
+
+
+const footerLinksCompiledTemplate = Handlebars.compile(footerLinksTemplate);
+const footerLinksHTML = footerLinksCompiledTemplate(footerLinksData);
+
+const logoImgSrc = require('./resources/images/logo_unv.png');
+$('#unv').append(`<img src="${logoImgSrc}" alt="Logo" class="me-3"/>`);
+
+$('#unv').append(footerLinksHTML);
 
 
 
@@ -217,4 +242,6 @@ fetchWeather();
 
 // Обновление температуры каждые 60 секунд (1 мин)
 setInterval(fetchWeather, 60000);
+
+
 });
