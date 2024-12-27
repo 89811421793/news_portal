@@ -196,7 +196,7 @@ $('#unv').append(footerLinksHTML);
 $(document).ready(function() {
 
     const burgerIcon = `
-        <svg width="24" height="24" class="align-middle">
+        <svg width="25" height="15" class="align-middle">
             <use xlink:href="${require('./resources/images/icons-sprite.svg')}#burgermenu"></use>
         </svg>
     `;
