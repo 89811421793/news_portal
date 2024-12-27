@@ -87,6 +87,27 @@ const footerLinksData = [
     { name: "Your Ad Choice", url: "#" }
 ];
 
+
+const socialLinks = [
+    { name: 'Facebook', id: 'facebook', url: '#' },
+    { name: 'Twitter', id: 'twitter', url: '#' },
+    { name: 'YouTube', id: 'youtube', url: '#' },
+    { name: 'Instagram', id: 'instagram', url: '#' }
+];
+
+
+socialLinks.forEach(link => {
+    const iconSrc = require('./resources/images/icons-sprite.svg');
+    const socialIcon = `
+        <a href="${link.url}" class="text-dark mx-2">
+            <svg width="40" height="40" class="align-middle">
+                <use xlink:href="${iconSrc}#${link.id}"></use>
+            </svg>
+        </a>
+    `;
+    $('#socials').append(socialIcon);
+});
+
 //Шаблон для навигационного меню
 const navTemplate = `
     <div class="navblock bg-dark text-white py-3">
