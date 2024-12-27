@@ -110,7 +110,7 @@ socialLinks.forEach(link => {
 
 //Шаблон для навигационного меню
 const navTemplate = `
-    <div class="navblock bg-dark text-white py-3">
+    <div class="navblock text-white py-3">
         <nav class="container">
             <ul class="d-flex justify-content-between list-unstyled mb-0">
                 {{#each this}}
