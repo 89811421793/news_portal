@@ -44,7 +44,7 @@ body {
   position: absolute;
   left: 25px;
   top: 50%;
-  transform: translateY(-50%);
+  transform: translateY(-70%);
 }
 
 .navblock {
@@ -75,4 +75,24 @@ body {
 
 .border-gold {
   border-top: 5px solid gold;
+}
+
+.articles {
+  background-color:#30363D;
+  padding:30px 25px 35px 25px;
+  border:none;
+  border-radius:10px;
+}
+
+.article-item {
+  position:relative;
+}
+
+.article-item::after {
+  content: '';
+  border: 1px solid #4B5157;
+  height: 100%;
+  position: absolute;
+  right: 20px; 
+
 }

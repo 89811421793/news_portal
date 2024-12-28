@@ -193,6 +193,7 @@ $('#unv').append(footerLinksHTML);
 
 
 
+
 $(document).ready(function() {
 
     const burgerIcon = `
@@ -263,6 +264,19 @@ fetchWeather();
 
 // Обновление температуры каждые 60 секунд (1 мин)
 setInterval(fetchWeather, 60000);
+
+
+    const guitarImgSrc = require('./resources/images/guitar.png'); 
+    $('#guitarImage').attr('src', guitarImgSrc);
+
+    const butterflyImgSrc = require('./resources/images/butterfly.png'); 
+    $('#butterflyImage').attr('src', butterflyImgSrc);
+
+    const blackmanImgSrc = require('./resources/images/blackman.png'); 
+    $('#blackmanImage').attr('src', blackmanImgSrc);
+
+    const trackImgSrc = require('./resources/images/track.png'); 
+    $('#trackImage').attr('src', trackImgSrc);
 
 
 });
