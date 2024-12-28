@@ -1,5 +1,18 @@
-<section style="background-color:#262D33; min-height:100vh;padding-top:30px">
-    <div class='container'>
+<section class="bg-dark" style="min-height:100vh; padding-top:30px;">
+    <div class="container">
         <div class="articles row" id="herorow"></div>
+    </div>
+
+    <div id="recommended" class="container d-flex" style="align-items: stretch; border:none; border-radius:10px;">
+        <!-- Левый блок с изображением -->
+        <div class="left-block flex-fill d-flex" style="flex: 3; display: flex; align-items: stretch;">
+            <img id="landscapeImage" alt="Landscape" class="img-fluid" style="width: 100%; height: 100%; object-fit: cover;" />
+        </div>
+
+        <!-- Правый блок с заголовком и подзаголовками -->
+        <div class="right-block bg-white flex-fill d-flex flex-column" style="flex: 1;">
+            <h2 class="fw-bold text-start title-rec">RECOMMENDED FOR YOU</h2>
+            <div id='rightside' class="d-flex flex-column flex-fill"></div>
+        </div>
     </div>
 </section>

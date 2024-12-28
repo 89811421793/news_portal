@@ -43,6 +43,15 @@ const articlesData = [
 ];
 
 
+const recommendationsData = [
+    { category: "FOOD", description: "For Chicken-Fried Steak, Too Much Is Just Enough", url: "#" },
+    { category: "CARS", description: "Storm Has Car Dealers Doing Swift Business", url: "#" },
+    { category: "MOVIES", description: "War Is Hell? In New Military Dramas, It’s One-Dimensional", url: "#" },
+    { category: "NFL", description: "11 surprising stat rankings for active NFL players", url: "#" },
+    { category: "TECH REVIEWS", description: "The bookcases you can buy online and assemble yourself", url: "#" }
+];
+
+
 const newsCategoryData = [
     {
         title: "News",
@@ -171,6 +180,14 @@ const articleTemplate = `
 `;
 
 
+const recommendationTemplate = `
+    <div class="p-3 border-top border-bottom" style="border-color: #D9DADB;">
+        <h4><a href="{{url}}" class="text-decoration-none" style="font-size:12px;color:#3BBDC4;">{{category}}</a></h4>
+        <p><a href='{{url}}' class="text-decoration-none desc-rec">{{description}}</a></p>
+    </div>
+`;
+
+
 const footerTemplate = `
     <div class="d-flex mt-5">
        {{#each this}}
@@ -196,6 +213,11 @@ const footerLinksTemplate = `
 const navCompiledTemplate = Handlebars.compile(navTemplate);
 const navHTML = navCompiledTemplate(navData);
 $('#nav').prepend(navHTML); 
+
+
+const compiledRecommendationTemplate = Handlebars.compile(recommendationTemplate);
+const recommendationsHTML = recommendationsData.map(rec => compiledRecommendationTemplate(rec)).join('');
+$('#rightside').append(recommendationsHTML);
 
 
 const categoryTemplate = Handlebars.compile(footerTemplate);
@@ -295,4 +317,8 @@ setInterval(fetchWeather, 60000);
 
     const trackImgSrc = require('./resources/images/track.png'); 
     $('#trackImage').attr('src', trackImgSrc);
+
+
+    const landscapeImgSrc = require('./resources/images/landscape.png');
+    $('#landscapeImage').attr('src', landscapeImgSrc);
 });

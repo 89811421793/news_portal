@@ -99,3 +99,14 @@ body {
 #herorow .article-item:last-child::after {
   content: none; 
 }
+
+.desc-rec {
+  color:#4B5157;
+  font-size:14px;
+}
+
+.title-rec {
+  padding: 17px 25px 19px 25px;
+  font-size:14px;
+  letter-spacing:0.5px;
+}
