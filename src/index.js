@@ -183,7 +183,7 @@ const articleTemplate = `
 const recommendationTemplate = `
     <div class="p-3 border-top border-bottom" style="border-color: #D9DADB;">
         <h4><a href="{{url}}" class="text-decoration-none" style="font-size:12px;color:#3BBDC4;">{{category}}</a></h4>
-        <p><a href='{{url}}' class="text-decoration-none desc-rec">{{description}}</a></p>
+        <p style='max-width:213px'><a href='{{url}}' class="text-decoration-none desc-rec">{{description}}</a></p>
     </div>
 `;
 
