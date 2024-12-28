@@ -159,6 +159,24 @@ Handlebars.registerHelper('borderColor', function(title) {
     }
 });
 
+
+Handlebars.registerHelper('getColor', function(category) {
+    switch (category) {
+        case 'FOOD':
+            return '#3BBDC4';
+        case 'CARS':
+            return '#6E99AE';
+        case 'MOVIES':
+            return '#AC8EE3';
+        case 'NFL':
+            return '#FFA34D';
+        case 'TECH REVIEWS':
+            return '#3DC47E';
+            default:
+                return; 
+    }
+});
+
 const navTemplate = `
     <div class="navblock text-white py-3">
         <nav class="container">
@@ -182,8 +200,12 @@ const articleTemplate = `
 
 const recommendationTemplate = `
     <div class="p-3 border-top border-bottom" style="border-color: #D9DADB;">
-        <h4><a href="{{url}}" class="text-decoration-none" style="font-size:12px;color:#3BBDC4;">{{category}}</a></h4>
-        <p style='max-width:213px'><a href='{{url}}' class="text-decoration-none desc-rec">{{description}}</a></p>
+        <h4>
+            <a href="{{url}}" class="text-decoration-none" style="font-size:12px; color:{{getColor category}}">{{category}}</a>
+        </h4>
+        <p style='max-width:213px'>
+            <a href='{{url}}' class="text-decoration-none desc-rec">{{description}}</a>
+        </p>
     </div>
 `;
 
