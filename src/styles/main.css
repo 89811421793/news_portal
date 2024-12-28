@@ -94,5 +94,8 @@ body {
   height: 100%;
   position: absolute;
   right: 20px; 
+}
 
+#herorow .article-item:last-child::after {
+  content: none; 
 }
