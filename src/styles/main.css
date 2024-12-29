@@ -113,7 +113,8 @@ body {
 
 .landscapeImage {
   background-image: url("../resources/images/landscape.png");
-  width: 100%;
+  width:877px;
   min-height: 570px;
   background-size: cover;
 }
+

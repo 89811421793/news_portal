@@ -6,10 +6,32 @@
     <div id="recommended" class="container d-flex">
 
         <!-- Левый блок с изображением -->
-        <div class="landscapeImage left-block flex-fill d-flex" style="flex: 3; display: flex; align-items: stretch;"></div>
+        <div class="landscapeImage left-block flex-fill d-flex" style="display: flex; align-items: stretch;padding:55px 55px 100px 55px">
+            <div id='avatarblock' style="color: white; display: flex; flex-direction: column; justify-content: flex-start;">
+                <div class='d-flex' style="gap:10px">
+                    <img alt="" id="benjamin" width="45" height='45'>
+                    <div class="d-flex flex-column justify-content-start">
+                    <span>By Benjamin Turner</span>
+                    <span>Traveler</span>
+                    </div>
+                </div>
+                <span style="color: #4592FF; text-transform: uppercase; margin-top: auto;">Destinations</span>
+                <p class='fw-bold' style="color: white; font-size: 40px; max-width: 598px;margin-top:25px;margin-bottom:45px">In Southeast England, White Cliffs and Fish</p>
+                <div class="d-flex">
+                    <button id='readmore' style="padding: 12px 25px; background-color: #4592FF; color: white; border-radius: 20px; border: none;margin-right:30px">Read more</button>
+                    <div class='d-flex' style="text-align: left; color: white;">
+                        <button style='background-color: unset; border:none;padding:0'><img alt="" id="player" width="50" height='50'></button>
+                        <div style="margin-left:10px">
+                             <span>The chalk cliff of Beachy Head</span><br>
+                             <span>18:05</span>
+                       </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <!-- Правый блок с заголовком и подзаголовками -->
-        <div class="right-block bg-white flex-fill d-flex flex-column" style="flex: 1;">
+        <div class="right-block bg-white flex-fill d-flex flex-column" style="max-width:263px">
             <h2 class="fw-bold text-start title-rec">RECOMMENDED FOR YOU</h2>
             <div id='rightside' class="d-flex flex-column flex-fill"></div>
         </div>

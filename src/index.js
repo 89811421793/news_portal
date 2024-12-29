@@ -299,6 +299,23 @@ $(document).ready(function() {
 
     $('.weatherInfo').prepend(weatherIconSrc);
 
+   
+    const arrowWhiteIcon = `
+    <svg width="15" height="7">
+        <use xlink:href="${require('./resources/images/icons-sprite.svg')}#arrowhite"></use>
+    </svg>
+    `;
+
+    $('#readmore').append(arrowWhiteIcon);
+
+    const avatarBenjImgSrc = require('./resources/images/Benjamin_avatar.png');
+    $('#benjamin').attr('src', avatarBenjImgSrc);
+
+
+    const playWhiteImgSrc = require('./resources/images/playwhite.png');
+    $('#player').attr('src', playWhiteImgSrc);
+
+
  function fetchWeather() {
     const city = 'Yuzhno-Sakhalinsk';
     const apiUrl = `https://api.open-meteo.com/v1/forecast?latitude=46.95&longitude=142.73&current_weather=true&timestamp=${Date.now()}`;
