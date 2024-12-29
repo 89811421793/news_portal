@@ -262,7 +262,7 @@ $('#herorow').append(articlesHTML);
 $(document).ready(function() {
 
     const burgerIcon = `
-        <svg width="25" height="15" class="align-middle">
+        <svg width="25" height="15" class="align-middle" style='cursor:pointer'>
             <use xlink:href="${require('./resources/images/icons-sprite.svg')}#burgermenu"></use>
         </svg>
     `;
@@ -340,7 +340,4 @@ setInterval(fetchWeather, 60000);
     const trackImgSrc = require('./resources/images/track.png'); 
     $('#trackImage').attr('src', trackImgSrc);
 
-
-    const landscapeImgSrc = require('./resources/images/landscape.png');
-    $('#landscapeImage').attr('src', landscapeImgSrc);
 });
