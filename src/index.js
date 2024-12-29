@@ -312,8 +312,43 @@ $(document).ready(function() {
     $('#benjamin').attr('src', avatarBenjImgSrc);
 
 
-    const playWhiteImgSrc = require('./resources/images/playwhite.png');
-    $('#player').attr('src', playWhiteImgSrc);
+    const playImgSrc = require('./resources/images/playwhite.png');
+    const pauseImgSrc = require('./resources/images/pause.png');
+    let playInterval;
+    let isPlaying = false;
+    let duration = 1080; // Примерная длительность в секундах (18 минут)
+
+    $('.playbtn img').attr('src', playImgSrc);
+
+    $('.playbtn').on('click', function() {
+        if (isPlaying) {
+            clearInterval(playInterval);
+            $(this).find('img').attr('src', playImgSrc); // Изменяем на иконку "Play"
+            isPlaying = false;
+            $('#currentTime').text('00:00'); // Сброс времени
+        } else {
+            let currentTime = 0;
+            $(this).find('img').attr('src', pauseImgSrc); // Изменяем на иконку "Pause"
+            isPlaying = true;
+
+            playInterval = setInterval(function() {
+                if (currentTime < duration) {
+                    currentTime++;
+                    $('#currentTime').text(formatTime(currentTime));
+                } else {
+                    clearInterval(playInterval);
+                    isPlaying = false;
+                    $('.playbtn').find('img').attr('src', playImgSrc); // Возвращаем на иконку "Play"
+                }
+            }, 1000);
+        }
+    });
+
+    function formatTime(seconds) {
+        const minutes = Math.floor(seconds / 60);
+        const secs = seconds % 60;
+        return `${String(minutes).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
+    }
 
 
  function fetchWeather() {
