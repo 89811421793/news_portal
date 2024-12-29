@@ -118,3 +118,24 @@ body {
   background-size: cover;
 }
 
+.readmorebtn {
+  padding: 12px 30px;
+  border-radius: 20px;
+  margin-right: 30px;
+  background-color:#4592FF;
+  color:white;
+  border:unset;
+}
+
+.playbtn{
+  background-color: unset;
+  border: none;
+  padding: 0;
+}
+
+.playdesc {
+  font-size: 40px;
+  max-width: 598px;
+  margin-top: 25px;
+  margin-bottom: 45px;
+}
