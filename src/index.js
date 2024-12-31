@@ -312,6 +312,10 @@ $(document).ready(function() {
     $('#benjamin').attr('src', avatarBenjImgSrc);
 
 
+    const avatarSarahImgSrc = require('./resources/images/Sarah_avatar.png');
+    $('#sarah').attr('src', avatarSarahImgSrc);
+
+
     const playImgSrc = require('./resources/images/playwhite.png');
     const pauseImgSrc = require('./resources/images/pause.png');
     let playInterval;
@@ -391,5 +395,19 @@ setInterval(fetchWeather, 60000);
 
     const trackImgSrc = require('./resources/images/track.png'); 
     $('#trackImage').attr('src', trackImgSrc);
+
+
+    const carImgSrc = require('./resources/images/car.png'); 
+    $('#carImage').attr('src', carImgSrc);
+
+
+
+    const commentIcon = `
+        <svg width="14" height="14">
+            <use xlink:href="${require('./resources/images/icons-sprite.svg')}#comment"></use>
+        </svg>
+    `;
+    
+    $('#comment').prepend(commentIcon);
 
 });
