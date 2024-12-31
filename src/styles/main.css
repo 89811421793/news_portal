@@ -151,7 +151,7 @@ body {
 
 .grid-item {
   border: 1px solid; /* Рамка для каждого блока */
-
+  border-radius:10px;
 }
 
 
@@ -159,6 +159,7 @@ body {
   grid-column: 1 / span 2; 
   grid-row: 1; 
   padding-top:30px;
+  background-color:#ffffff;
 }
 
 .grid-item-2 {
@@ -174,6 +175,7 @@ body {
 .grid-item-4 {
   grid-column: 1; /* Занимает первую колонку */
   grid-row: 2 / span 2; /* Занимает второй и третий ряд */
+  background-color:#ffffff;
 }
 
 .grid-item-5 {

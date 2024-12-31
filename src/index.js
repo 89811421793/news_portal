@@ -401,6 +401,10 @@ setInterval(fetchWeather, 60000);
     $('#carImage').attr('src', carImgSrc);
 
 
+    const catImgSrc = require('./resources/images/cat_sphynx.png'); 
+    $('#catImage').attr('src', catImgSrc);
+
+
 
     const commentIcon = `
         <svg width="14" height="14">
