@@ -181,19 +181,23 @@ body {
 .grid-item-5 {
   grid-column: 2; /* Занимает вторую колонку */
   grid-row: 2; /* Занимает второй ряд */
+  padding:25px;
 }
 
 .grid-item-6 {
   grid-column: 3; /* Занимает третью колонку */
   grid-row: 2; /* Занимает второй ряд */
+  padding:25px;
 }
 
 .grid-item-7 {
   grid-column: 2; /* Занимает вторую колонку */
   grid-row: 3; /* Занимает третий ряд */
+  padding:25px;
 }
 
 .grid-item-8 {
   grid-column: 3; /* Занимает третью колонку */
   grid-row: 3; /* Занимает третий ряд */
+  padding:25px;
 }
