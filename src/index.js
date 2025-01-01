@@ -315,6 +315,9 @@ $(document).ready(function() {
     const avatarSarahImgSrc = require('./resources/images/Sarah_avatar.png');
     $('#sarah').attr('src', avatarSarahImgSrc);
 
+    const avatarSarahImgSrc2 = require('./resources/images/Sarah_avatar.png');
+    $('#sarah2').attr('src', avatarSarahImgSrc2);
+
 
     const playImgSrc = require('./resources/images/playwhite.png');
     const pauseImgSrc = require('./resources/images/pause.png');
@@ -413,5 +416,23 @@ setInterval(fetchWeather, 60000);
     `;
     
     $('#comment').prepend(commentIcon);
+
+
+    const commentIcon2 = `
+    <svg width="14" height="14">
+        <use xlink:href="${require('./resources/images/icons-sprite.svg')}#comment"></use>
+    </svg>
+`;
+
+$('#comment2').prepend(commentIcon2);
+
+
+const heartIcon = `
+<svg width="14" height="13">
+    <use xlink:href="${require('./resources/images/icons-sprite.svg')}#heart"></use>
+</svg>
+`;
+
+$('#heart').prepend(heartIcon);
 
 });

@@ -166,6 +166,7 @@ body {
   grid-column: 3; /* Занимает третью колонку */
   grid-row: 1; /* Занимает первый ряд */
   background: url("../resources/images/arm.png") no-repeat center center / cover;
+  padding: 18px 35px 25px 25px;
 }
 
 .grid-item-3 {
