@@ -150,7 +150,7 @@ body {
 }
 
 .grid-item {
-  border: 1px solid; /* Рамка для каждого блока */
+  border: none;
   border-radius:10px;
 }
 
@@ -165,11 +165,13 @@ body {
 .grid-item-2 {
   grid-column: 3; /* Занимает третью колонку */
   grid-row: 1; /* Занимает первый ряд */
+  background: url("../resources/images/arm.png") no-repeat center center / cover;
 }
 
 .grid-item-3 {
   grid-column: 4; /* Занимает четвертую колонку */
   grid-row: 1 / span 3; /* Занимает первый, второй и третий ряд */
+  background-color:#6E99AE;
 }
 
 .grid-item-4 {
@@ -182,22 +184,26 @@ body {
   grid-column: 2; /* Занимает вторую колонку */
   grid-row: 2; /* Занимает второй ряд */
   padding:25px;
+  background-color:#ffffff;
 }
 
 .grid-item-6 {
   grid-column: 3; /* Занимает третью колонку */
   grid-row: 2; /* Занимает второй ряд */
   padding:25px;
+  background-color:#ffffff;
 }
 
 .grid-item-7 {
   grid-column: 2; /* Занимает вторую колонку */
   grid-row: 3; /* Занимает третий ряд */
   padding:25px;
+  background-color:#ffffff;
 }
 
 .grid-item-8 {
   grid-column: 3; /* Занимает третью колонку */
   grid-row: 3; /* Занимает третий ряд */
   padding:25px;
+  background-color:#ffffff;
 }
