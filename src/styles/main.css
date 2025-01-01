@@ -208,3 +208,21 @@ body {
   padding:25px;
   background-color:#ffffff;
 }
+
+
+
+.grid-item-3 p {
+  position: relative; 
+  z-index:1;
+}
+
+.grid-item-3 p::before {
+  content: ""; 
+  background-image: url("../resources/images/Quote.png"); 
+  position: absolute; 
+  left: -6%; 
+  top: 0; 
+  z-index:-1;
+  width: 40px; 
+  height: 40px; 
+}
